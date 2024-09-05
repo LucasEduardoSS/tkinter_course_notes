@@ -23,39 +23,22 @@ def button_clear():
     display.delete(0, END)
 
 
-def button_add():
+def button_operation(operation:str):
     if display.get() != '':
         terms.append(int(display.get()))
 
-    if len(operators) == len(terms) - 1:
-        operators.append('+')
-    display.delete(0, END)
-
-
-def button_subtract():
-    if display.get() != '':
-        terms.append(int(display.get()))
-
-    if len(operators) == len(terms) - 1:
-        operators.append('-')
-    display.delete(0, END)
-
-
-def button_multiply():
-    if display.get() != '':
-        terms.append(int(display.get()))
+    match operation:
+        case "add":
+            op_symbol = "+"
+        case "subtract":
+            op_symbol = "-"
+        case "multiply":
+            op_symbol = "*"
+        case "divide":
+            op_symbol = "/"
 
     if len(operators) == len(terms) - 1:
-        operators.append('*')
-    display.delete(0, END)
-
-
-def button_divide():
-    if display.get() != '':
-        terms.append(int(display.get()))
-
-    if len(operators) == len(terms) - 1:
-        operators.append('/')
+        operators.append(op_symbol)
     display.delete(0, END)
 
 
@@ -114,10 +97,10 @@ but_0 = Button(root, text="0", padx=30, pady=40, command=lambda: button_click(0)
 but_equal = Button(root, text="=", padx=29, pady=40, command=button_equal)
 but_clear = Button(root, text="CL", padx=26, pady=40, command=button_clear)
 
-but_add = Button(root, text="+ ", padx=27, pady=40, command=button_add)
-but_sub = Button(root, text="-", padx=30, pady=40, command=button_subtract)
-but_multiply = Button(root, text="*", padx=30, pady=40, command=button_multiply)
-but_divide = Button(root, text="/", padx=30, pady=40, command=button_divide)
+but_add = Button(root, text="+ ", padx=27, pady=40, command=lambda: button_operation("add"))
+but_sub = Button(root, text="-", padx=30, pady=40, command=lambda: button_operation("subtract"))
+but_multiply = Button(root, text="*", padx=30, pady=40, command=lambda: button_operation("multiply"))
+but_divide = Button(root, text="/", padx=30, pady=40, command=lambda: button_operation("divide"))
 
 # Put the buttons on the screen
 but_0.grid(row=4, column=0)

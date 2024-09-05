@@ -55,4 +55,8 @@ but_back.grid(row=1, column=0)
 but_next.grid(row=1, column=2)
 but_exit.grid(row=1, column=1)
 
+# Status Bar
+status = Label(root, text=f'Image {next_img} of {str(len(img_list))}')
+status.grid(row=2, column=1)
+
 root.mainloop()
