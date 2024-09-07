@@ -5,9 +5,12 @@ from PIL import ImageTk, Image
 
 
 def update(img_index):
-    global next_img, prev_img, img_label
+    global next_img, prev_img, img_label, status
     # Update the image
     img_label["image"] = img_list[img_index]
+
+    # Update the index label (status)
+    status["text"] = f"Image {img_index+1} of {str(len(img_list))}"
 
     # Update the index variables
     next_img = img_index + 1
