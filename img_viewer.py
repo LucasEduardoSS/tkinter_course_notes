@@ -56,10 +56,10 @@ but_exit = Button(root, text="Exit Program", command=root.quit)
 # Display Buttons
 but_back.grid(row=1, column=0)
 but_next.grid(row=1, column=2)
-but_exit.grid(row=1, column=1)
+but_exit.grid(row=1, column=1, pady=10)
 
 # Status Bar
-status = Label(root, text=f'Image {next_img} of {str(len(img_list))}')
-status.grid(row=2, column=1)
+status = Label(root, text=f'Image {next_img} of {str(len(img_list))}', bd=1, relief=SUNKEN, anchor=E)
+status.grid(row=2, column=0, columnspan=3, sticky=W+E, padx=5)
 
 root.mainloop()
