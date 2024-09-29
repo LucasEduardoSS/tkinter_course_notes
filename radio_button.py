@@ -11,12 +11,29 @@ def clicked(value):
     myLabel1.pack()
 
 
+# Variables
 var = IntVar()
+pizza = StringVar()
 
-Radiobutton(root, text="Option 1", variable=var, value=1, command=lambda : clicked(var.get())).pack()
-Radiobutton(root, text="Option 2", variable=var, value=2, command=lambda : clicked(var.get())).pack()
+# Pizza flavors
+flavors = [
+    ("Pepperoni", "Pepperoni"),
+    ("Calabresa", "Calabresa"),
+    ("Portuguesa", "Portuguesa"),
+    ("4 Queijos", "4 Queijos")
+]
 
-myLabel1 = Label(root, text=var.get())
+# Pizza flavor selection
+for text, flavor in flavors:
+    Radiobutton(root, text=text, variable=pizza, value=flavor).pack()
+
+# Radiobutton(root, text="Option 1", variable=var, value=1, command=lambda : clicked(var.get())).pack()
+# Radiobutton(root, text="Option 2", variable=var, value=2, command=lambda : clicked(var.get())).pack()
+
+myButton = Button(root, text="Click Me!", command=lambda: clicked(pizza.get()))
+myButton.pack()
+
+myLabel1 = Label(root, text=pizza.get())
 myLabel1.pack()
 
 if __name__ == "__main__":
